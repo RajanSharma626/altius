@@ -23,3 +23,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/order-book', function () {
+    return view('order-book');
+})->name('order-book');
+
+Route::get('/price', function () {
+    return view('price');
+})->name('price');

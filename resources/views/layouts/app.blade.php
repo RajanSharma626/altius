@@ -39,7 +39,7 @@
     </nav>
 
     <div class="flex">
-        <aside class="w-1/5 h-screen bg-gray-100">
+        <aside class="w-1/5 h-screen bg-gray-100 border-e-2">
             <div class="p-4 border-b">
                 <!-- Search Box -->
                 <input type="text" placeholder="Search..."
@@ -70,13 +70,54 @@
             </div>
         </aside>
 
-        <main class="w-3/3 p-4">
+        <main class="flex-1 p-4">
             <!-- Main Content -->
             @yield('content')
             <!-- /Main Content -->
         </main>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var options = {
+                series: [{
+                    name: 'series1',
+                    data: [31, 40, 28, 51, 42, 109, 100]
+                }, {
+                    name: 'series2',
+                    data: [11, 32, 45, 32, 34, 52, 41]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'area'
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    type: 'datetime',
+                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z",
+                        "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z",
+                        "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"
+                    ]
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy HH:mm'
+                    },
+                },
+            };
+
+            var chart = new ApexCharts(document.querySelector("#priceChart"), options);
+            chart.render();
+        });
+    </script>
 </body>
 
 </html>
