@@ -12,25 +12,35 @@
                                 class="text-green-800 text-xs font-semibold">A</span></div>
                         <div>
                             <h1 class="text-sm font-semibold">Apollo Green Energy Limited (ESTD-1994)</h1>
-                            <div class="flex items-center gap-1 text-xs">
-                                <span class="text-gray-500 ">INE838A01015</span>
-
-                                <button class="text-xs text-gray-600 border border-gray-300 px-2 py-1 rounded"><i class="bi bi-share"></i></button>
-                            </div>
+                            <div class="flex items-center gap-1 text-xs"><span
+                                    class="bg-green-100 text-green-800 px-1 rounded">BSE</span><span
+                                    class="bg-green-100 text-green-800 px-1 rounded">NSE</span><span
+                                    class="text-gray-500">•</span><span class="text-gray-500">IN</span></div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2"><button
-                            class="bg-red-500 text-white text-xs px-3 py-1 rounded flex items-center gap-1">
-                            <i class="bi bi-trash3"></i><span>Watchlist</span></button><button
-                            class="text-xs text-gray-600 border border-gray-300 px-2 py-1 rounded"><i
-                                class="bi bi-bell"></i></button>
-                        <div class="text-xs text-gray-600 flex items-center gap-1"><span>Demat In:</span><span
-                                class="font-medium flex items-center">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHZ4WX0z69bThNo6s077o9A5cMC5ne1woIhw&s"
-                                    class="h-10 w-10 object-contain me-1" alt="">
-                                <img src="https://media.top10stockbroker.com/wp-content/uploads/2020/10/NSDL-or-National-Securities-Depository-Limited-300x104.png"
-                                    class="h-10 w-10 object-contain me-1" alt="">
-                            </span></div>
+                            class="bg-red-500 text-white text-xs px-3 py-1 rounded flex items-center gap-1"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-download">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" x2="12" y1="15" y2="3"></line>
+                            </svg><span>Download</span></button><button
+                            class="text-xs text-gray-600 border border-gray-300 px-2 py-1 rounded"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-bell">
+                                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                            </svg></button>
+                        <div class="text-xs text-gray-600 flex items-center gap-1"><span>Default In:</span><span
+                                class="font-medium flex items-center">₹ INR <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-chevron-down">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg></span></div>
                     </div>
                 </div>
             </div>
@@ -158,8 +168,7 @@
 
                         </div>
                         <div class="mt-4 text-xs text-gray-500">
-                            <p>*Data is as per last available financials, corporate actions in the interim period might not
-                                be reflected here.</p>
+                            <p>*Data is as per last available financials, corporate actions in the interim period might not be reflected here.</p>
                         </div>
                     </div>
 
