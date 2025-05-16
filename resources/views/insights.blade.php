@@ -39,18 +39,18 @@
         <main class="container mx-auto px-4 py-4">
             <div class="border-b border-gray-200 overflow-x-auto">
                 <div class="flex space-x-4 text-xs">
-                    <button
-                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Price</button>
-                    <button
-                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Overview</button>
-                    <button
-                        class="py-2 px-1 border-b-2 whitespace-nowrap border-blue-500 text-blue-600 font-medium">Insights</button>
-                    <button
+                    <a href="{{ route('price') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Price</a>
+                    <a href="{{ route('overview') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Overview</a>
+                    <a href="{{ route('insights') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-blue-500 text-blue-600 font-medium">Insights</a>
+                    <a href="{{ route('balance-sheet') }}"
                         class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Balance
-                        Sheet</button>
-                    <button
+                        Sheet</a>
+                    <a href="{{ route('profit-and-loss') }}"
                         class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Profit
-                        and Loss</button>
+                        and Loss</a>
                     <button
                         class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Shareholdings</button><button
                         class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Ancillary</button><button
@@ -105,7 +105,8 @@
 
                     <ul class="list-disc pl-5 text-xs text-gray-600 leading-relaxed mt-2">
                         <li>Apollo Green Energy Limited (AGEL), part of Apollo International Group, is working towards
-                            <b>expanding its renewable energy portfolio to ₹10,000 crore by 2025.</b></li>
+                            <b>expanding its renewable energy portfolio to ₹10,000 crore by 2025.</b>
+                        </li>
                         <li>The company currently manages projects worth ₹33,500 crore, with a robust balance sheet and
                             plans for further growth and new initiatives.</li>
                         <li>AGEL operates in eight states and has developed <b>400 MW of solar power installations</b>,

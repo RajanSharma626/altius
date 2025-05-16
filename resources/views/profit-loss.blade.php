@@ -39,16 +39,19 @@
         <main class="container mx-auto px-4 py-4">
             <div class="border-b border-gray-200 overflow-x-auto">
                 <div class="flex space-x-4 text-xs">
-                    <button
-                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Price</button>
-                    <button
-                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Overview</button>
-                    <button
-                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Insights</button>
-                        <button
-                            class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Balance
-                        Sheet</button>
-                    <button class="py-2 px-1 border-b-2 whitespace-nowrap border-blue-500 text-blue-600 font-medium">Profit & Loss</button>
+                    <a href="{{ route('price') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Price</a>
+                    <a href="{{ route('overview') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Overview</a>
+                    <a href="{{ route('insights') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Insights</a>
+
+                    <a href="{{ route('balance-sheet') }}"
+                        class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Balance
+                        Sheet</a>
+
+                    <a href="{{ route('profit-and-loss') }}" class="py-2 px-1 border-b-2 whitespace-nowrap border-blue-500 text-blue-600 font-medium">Profit
+                        & Loss</a>
 
                     <button
                         class="py-2 px-1 border-b-2 whitespace-nowrap border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300">Shareholdings</button><button

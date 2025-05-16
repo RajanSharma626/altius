@@ -22,9 +22,9 @@
             <!-- Menu -->
             <div>
                 <ul class="flex space-x-4 items-center">
-                    <li><a href="#" class="text-black ">Dashboard</a></li>
+                    <li><a href="/" class="text-black ">Dashboard</a></li>
                     <li><a href="#" class="text-black">Holdings</a></li>
-                    <li><a href="#" class="text-black">Order Book</a></li>
+                    <li><a href="{{route('order-book')}}" class="text-black">Order Book</a></li>
                     <li><a href="#" class="text-black">Refer and Earn</a></li>
                     <li><a href="#" class="text-black"><i class="bi bi-bell-fill"></i></a></li>
                     <li><a href="#" class="text-black"><i class="bi bi-mortarboard-fill text-xl"></i></a></li>

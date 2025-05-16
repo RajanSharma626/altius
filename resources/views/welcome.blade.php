@@ -31,7 +31,7 @@
                 <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded">
                     + Watchlist
                 </a>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded">
+                <a href="{{route('price')}}" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded">
                     Explore Asset
                 </a>
             </div>
