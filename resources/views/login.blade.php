@@ -4,66 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Bridging Gap - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Minimal custom CSS - only what Bootstrap can't handle */
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-md w-full bg-white rounded-lg shadow-lg overflow-hidden">
-        <div class="bg-indigo-600 py-6">
-            <h1 class="text-center text-white text-2xl font-bold">Dashboard Login</h1>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1 fw-bold text-dark">
+                <img src="https://bridginggap.org/wp-content/uploads/2025/03/BgisLogoFinalx300.png" class="img-fluid"
+                    width="200px" alt="">
+            </span>
+            <button class="btn btn-primary btn-sm">
+                <i class="fab fa-google me-1"></i>Sign In
+            </button>
         </div>
-        <div class="p-8">
-            <form method="POST" action="/login">
-                <!-- CSRF Token would go here in a real application -->
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Enter Email or Phone no.</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i class="fas fa-envelope text-gray-400"></i>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid vh-100">
+        <div class="row h-100 align-items-center">
+            <!-- Login Form Section -->
+            <div class="col-lg-6 d-flex justify-content-center">
+                <div class="card shadow-lg border-0 rounded-4" style="max-width: 450px; width: 100%;">
+                    <div class="card-body p-5">
+                        <h1 class="display-6 fw-bold text-dark mb-3">Welcome to Bridging Gap</h1>
+                        <p class="text-muted mb-4 lh-base">
+                            Get the most recent reports and insights of Pre-IPO and startup companies. We provide all
+                            company due diligence and track all updates.
+                        </p>
+
+                        <!-- Google Sign In Button -->
+                        <button class="btn btn-primary w-100 py-2 mb-4 fw-semibold">
+                            <i class="fab fa-google me-2"></i>Sign In
+                        </button>
+
+                        <!-- Divider -->
+                        <div class="position-relative text-center mb-4">
+                            <hr class="text-muted">
+                            <span
+                                class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted">OR</span>
                         </div>
-                        <input type="text" id="email" name="email"
-                            class="pl-10 w-full py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="you@example.com" required>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <label for="password" class="block text-gray-700 text-sm font-medium mb-2">One Time Password (OTP)</label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i class="fas fa-lock text-gray-400"></i>
+
+                        <!-- Login Form -->
+                        <form>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold text-dark">Enter Email or
+                                    Mobile</label>
+                                <input type="email" class="form-control form-control-lg border-2" id="email"
+                                    placeholder="Email">
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="keepLoggedIn">
+                                    <label class="form-check-label text-muted small" for="keepLoggedIn">
+                                        Keep me logged in?
+                                    </label>
+                                </div>
+                                <a href="{{route('forgot-password')}}" class="text-primary text-decoration-none small">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Sign In</button>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <span class="text-muted">Don't have an account? </span>
+                            <a href="#" class="text-primary text-decoration-none fw-semibold">Sign up</a>
                         </div>
-                        <input type="password" id="password" name="password"
-                            class="pl-10 w-full py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="••••••" required>
                     </div>
                 </div>
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center">
-                        <input id="remember_me" name="remember_me" type="checkbox"
-                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="remember_me" class="ml-2 block text-sm text-gray-700">Remember me</label>
-                    </div>
-                    <a href="{{route('forgot-password')}}" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-                </div>
-                <div>
-                    <button type="submit"
-                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Sign in
-                    </button>
-                </div>
-            </form>
-            <div class="mt-6 text-center">
-                <p class="text-sm text-gray-600">
-                    Don't have an account?
-                    <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500">
-                        Register here
-                    </a>
-                </p>
+            </div>
+
+            <!-- Illustration Section -->
+            <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
+                <img src="{{ asset('assets/images/login/login.png') }}" class="img-fluid w-100" alt="">
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
