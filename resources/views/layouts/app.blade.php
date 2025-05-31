@@ -5,78 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'My Laravel App')</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+    <style>
+        .sidebar {
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar-body {
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .company-item {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .company-item:hover {
+            background-color: #f8f9fa !important;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="bg-gray-200 p-4">
-        <div class="container mx-auto flex justify-between items-center">
+    <nav class="navbar navbar-expand-lg" style="background-color: #e5e7eb;">
+        <div class="container">
             <!-- Logo -->
-            <div class="text-white text-lg font-bold">
-                <a href="#"><img
-                        src="https://trade.altiusinvestech.com/static/media/logo.a64f96971bd96c977fe749686ab36237.svg"
-                        class="h-8 sm:h-10" alt="Logo"></a>
-            </div>
+            <a class="navbar-brand" href="#">
+                <img src="https://trade.altiusinvestech.com/static/media/logo.a64f96971bd96c977fe749686ab36237.svg"
+                     class="d-inline-block align-text-top" style="height: 32px;" alt="Logo">
+            </a>
+            
             <!-- Menu -->
-            <div>
-                <ul class="flex space-x-4 items-center">
-                    <li><a href="/" class="text-black ">Dashboard</a></li>
-                    <li><a href="#" class="text-black">Holdings</a></li>
-                    <li><a href="{{route('order-book')}}" class="text-black">Order Book</a></li>
-                    <li><a href="#" class="text-black">Refer and Earn</a></li>
-                    <li><a href="#" class="text-black"><i class="bi bi-bell-fill"></i></a></li>
-                    <li><a href="#" class="text-black"><i class="bi bi-mortarboard-fill text-xl"></i></a></li>
-                    <li><a href="#" class="text-black"><i class="bi bi-person-circle text-2xl"></i></a></li>
+            <div class="navbar-nav ms-auto">
+                <ul class="navbar-nav d-flex flex-row align-items-center">
+                    <li class="nav-item me-3">
+                        <a href="/" class="nav-link text-dark">Dashboard</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="#" class="nav-link text-dark">Holdings</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="{{ route('order-book') }}" class="nav-link text-dark">Order Book</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="#" class="nav-link text-dark">Refer and Earn</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="#" class="nav-link text-dark"><i class="bi bi-bell-fill"></i></a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a href="#" class="nav-link text-dark"><i class="bi bi-mortarboard-fill fs-5"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-dark"><i class="bi bi-person-circle fs-4"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <nav>
-        <p class="text-center py-2 bg-green-300">For any inquiries, please contact your Relationship Manager</p>
-    </nav>
-
-    <div class="flex">
-        <aside class="w-1/5 h-screen bg-gray-100 border-e-2">
-            <div class="p-4 border-b">
-                <!-- Search Box -->
-                <input type="text" placeholder="Search..."
-                    class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 px-0">
+                <div class="alert alert-success text-center py-2 mb-0 rounded-0" role="alert">
+                    For any inquiries, please contact your Relationship Manager
+                </div>
             </div>
-            <div class="flex justify-between border-b">
-                <!-- Tabs -->
-                <button
-                    class="w-1/2 py-2 text-center font-bold text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-300">All
-                    Companies</button>
-                <button
-                    class="w-1/2 py-2 text-center font-bold text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-300">Watchlist</button>
-            </div>
-            <div class="overflow-y-auto h-[calc(100vh-120px)]">
-                <!-- Sidebar Body -->
-                <ul class="space-y-2">
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 1</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 2</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 3</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 4</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 5</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 6</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 7</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 8</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 9</li>
-                    <li class="p-2 bg-white hover:bg-gray-200">Company 10</li>
-                </ul>
-            </div>
-        </aside>
-
-        <main class="flex-1 p-4">
-            <!-- Main Content -->
-            @yield('content')
-            <!-- /Main Content -->
-        </main>
+        </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-3 sidebar bg-light border-end">
+                <div class="p-3 border-bottom">
+                    <!-- Search Box -->
+                    <input type="text" placeholder="Search..." class="form-control">
+                </div>
+                <div class="d-flex border-bottom">
+                    <!-- Tabs -->
+                    <button class="btn btn-outline-secondary flex-fill rounded-0 border-0 fw-bold">
+                        All Companies
+                    </button>
+                    <button class="btn btn-outline-secondary flex-fill rounded-0 border-0 fw-bold">
+                        Watchlist
+                    </button>
+                </div>
+                <div class="sidebar-body">
+                    <!-- Sidebar Body -->
+                    <ul class="list-unstyled">
+                        <li class="p-2 bg-white company-item border-bottom">Company 1</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 2</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 3</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 4</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 5</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 6</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 7</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 8</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 9</li>
+                        <li class="p-2 bg-white company-item border-bottom">Company 10</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="col-md-9 p-4">
+                <!-- Main Content -->
+                @yield('content')
+              
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

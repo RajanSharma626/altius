@@ -86,7 +86,7 @@
                                 class="px-2 py-1 rounded bg-gray-100 text-gray-600 hover:bg-gray-200">MAX</button></div>
                     </div>
                     <div class="h-64 w-full">
-                        <canvas id="priceChart" class="w-full h-full"></canvas>
+                         <div id="priceChart"></div>
                     </div>
 
                     <div class="mt-4 flex justify-between text-xs text-gray-500">
