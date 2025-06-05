@@ -49,3 +49,16 @@ Route::get('/balance-sheet', function () {
 Route::get('/profit-and-loss', function () {
     return view('profit-loss');
 })->name('profit-and-loss');
+
+
+Route::get('/press', function () {
+    return view('press');
+})->name('press');
+
+Route::get('/annual-report', function () {
+    return view('annual-report');
+})->name('annual.report');
+
+Route::get('/company-information', function () {
+    return view('company-info');
+})->name('company.info');

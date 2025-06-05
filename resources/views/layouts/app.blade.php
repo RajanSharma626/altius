@@ -29,7 +29,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #e5e7eb;">
-        <div class="container">
+        <div class="container-fluid">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
                 <img src="https://trade.altiusinvestech.com/static/media/logo.a64f96971bd96c977fe749686ab36237.svg"
@@ -65,7 +65,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 px-0">
                 <div class="alert alert-success text-center py-2 mb-0 rounded-0" role="alert">
@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <aside class="col-md-3 sidebar bg-light border-end">
                 <div class="p-3 border-bottom">
