@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ReferAndEarnController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -62,3 +63,10 @@ Route::get('/annual-report', function () {
 Route::get('/company-information', function () {
     return view('company-info');
 })->name('company.info');
+
+Route::get('/my-account', [
+    AuthController::class,
+    'myAccount'
+])->name('my-account');
+
+Route::get('/refer-and-earn', [ReferAndEarnController::class, 'index'])->name('refer-and-earn');

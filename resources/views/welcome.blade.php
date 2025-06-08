@@ -142,5 +142,101 @@
             </div>
         </div>
 
+        <div class="container-fluid p-4">
+        <div class="row g-3">
+            <!-- Refer and Earn Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                        <h6 class="card-title mb-0 fw-bold">Refer and Earn</h6>
+                        <button class="btn btn-primary btn-sm">Refer a Friend</button>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Refer a friend and you both get ₹500</p>
+                        
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <div class="border-end">
+                                    <h3 class="text-success fw-bold mb-1">0<span class="text-muted">/20</span></h3>
+                                    <small class="text-muted">Referrals Done</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="text-success fw-bold mb-1">₹0.00</h3>
+                                <small class="text-muted">Rewards Earned</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Relationship Manager Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <div class="card-header bg-white border-0">
+                        <h6 class="card-title mb-0 fw-bold">Relationship Manager</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-user text-muted me-2"></i>
+                                <strong class="me-2">Name :</strong>
+                                <span>Ranjit Thakur</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-envelope text-muted me-2"></i>
+                                <strong class="me-2">Email :</strong>
+                                <a href="mailto:ranjit@altosinvestech.com" class="text-primary text-decoration-none">
+                                    ranjit@altosinvestech.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-phone text-muted me-2"></i>
+                                <strong class="me-2">Mobile No. :</strong>
+                                <a href="tel:+918727201510" class="text-primary text-decoration-none">
+                                    +918727201510
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Area Card -->
+            <div class="col-lg-4 col-md-12">
+                <div class="card h-100">
+                    <div class="card-header bg-white border-0">
+                        <h6 class="card-title mb-0 fw-bold">Research Area</h6>
+                    </div>
+                    <div class="card-body">
+                        <ol class="list-unstyled mb-0">
+                            <li class="mb-2">
+                                <a href="#" class="text-primary text-decoration-none small">
+                                    1. Join Our WhatsApp Community For the Latest Updates
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-primary text-decoration-none small">
+                                    2. All you need to know about Waaree Energies Limited
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-primary text-decoration-none small">
+                                    3. Long IPO wait times fuel Gyo would look for private funding
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </section>
 @endsection

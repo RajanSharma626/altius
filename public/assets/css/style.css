@@ -1,0 +1,125 @@
+   .sidebar {
+       height: 100vh;
+       overflow-y: auto;
+   }
+
+   .sidebar-body {
+       height: calc(100vh - 120px);
+       overflow-y: auto;
+   }
+
+   .company-item {
+       cursor: pointer;
+       transition: background-color 0.2s;
+   }
+
+   .company-item:hover {
+       background-color: #f8f9fa !important;
+   }
+
+   .modal-xl-custom {
+       max-width: 90%;
+   }
+
+   .video-container {
+       position: relative;
+       width: 100%;
+       height: 300px;
+       background: #f8f9fa;
+       border-radius: 8px;
+       overflow: hidden;
+   }
+
+   .video-placeholder {
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: white;
+       font-size: 18px;
+       position: relative;
+   }
+
+   .play-button {
+       width: 60px;
+       height: 60px;
+       background: #ff0000;
+       border-radius: 8px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       cursor: pointer;
+       transition: all 0.3s ease;
+   }
+
+   .play-button:hover {
+       transform: scale(1.1);
+   }
+
+   .play-button::after {
+       content: '';
+       width: 0;
+       height: 0;
+       border-left: 15px solid white;
+       border-top: 10px solid transparent;
+       border-bottom: 10px solid transparent;
+       margin-left: 3px;
+   }
+
+   .menu-item {
+       padding: 12px 16px;
+       border-bottom: 1px solid #e9ecef;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       border-left: 3px solid transparent;
+   }
+
+   .menu-item:hover {
+       background-color: #f8f9fa;
+   }
+
+   .menu-item.active {
+       background-color: #e3f2fd;
+       border-left-color: #2196f3;
+       color: #1976d2;
+       font-weight: 500;
+   }
+
+   .menu-item:last-child {
+       border-bottom: none;
+   }
+
+   .tab-content-custom {
+       min-height: 400px;
+   }
+
+   .video-title {
+       position: absolute;
+       bottom: 20px;
+       left: 20px;
+       background: rgba(0, 0, 0, 0.7);
+       color: white;
+       padding: 8px 16px;
+       border-radius: 4px;
+       font-weight: bold;
+   }
+
+   .modal-header-custom {
+       border-bottom: none;
+       padding-bottom: 0;
+   }
+
+   .nav-tabs-custom .nav-link {
+       border: none;
+       border-radius: 0;
+       background: #6c757d;
+       color: white;
+       margin-right: 2px;
+   }
+
+   .nav-tabs-custom .nav-link.active {
+       background: #007bff;
+       color: white;
+   }

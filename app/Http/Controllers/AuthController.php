@@ -15,4 +15,9 @@ class AuthController extends Controller
    {
        return view('forgot-password');
    }
+
+   public function myAccount()
+   {
+       return view('my-account');
+   }
 }
