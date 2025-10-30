@@ -3,9 +3,9 @@
 @section('title', 'My Account')
 
 @section('content')
-
-<div class="row">
-            <!-- Sidebar -->
+    <div class="container-fluid">
+        <div class="row g-0">
+            <!-- Steps Sidebar (no company list) -->
             <div class="col-md-3 bg-white border-end vh-100 p-4">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <div class="d-flex align-items-center mb-3 p-3 bg-light rounded">
@@ -83,11 +83,13 @@
                         <div class="bg-white rounded p-4 shadow-sm">
                             <h4 class="text-primary mb-4">Your Basic Profile</h4>
                             
+                            <form method="POST" action="{{ route('profile.update.basic') }}">
+                                @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Email <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control" value="maleacidul456@gmail.com">
+                                        <input type="email" class="form-control" value="{{ auth()->user()->email }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -104,7 +106,7 @@
                                         </div>
                                         <div class="col-8">
                                             <div class="input-group">
-                                                <input type="tel" class="form-control" value="7900336200">
+                                        <input type="tel" name="mobile_no" class="form-control" value="{{ auth()->user()->mobile_no }}">
                                                 <span class="input-group-text bg-success text-white">
                                                     <i class="fas fa-check"></i>
                                                 </span>
@@ -116,7 +118,7 @@
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label">Full Name (As on PAN Card)</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="MOHD ABDULLA">
+                                        <input type="text" name="full_name" class="form-control" value="{{ auth()->user()->full_name ?? auth()->user()->name }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -126,7 +128,7 @@
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label">PAN Number <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="BFPPV7163B">
+                                        <input type="text" name="pan_no" class="form-control" value="{{ auth()->user()->pan_no }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -135,13 +137,13 @@
                                 
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Address <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" rows="2">FLAT 1002, A WING, GOLDEN TOWER, PLOT 55, SECTOR 24, PHASE 2, TALOJA, NAVI MUMBAI 410208</textarea>
+                                    <textarea class="form-control" name="address" rows="2">{{ auth()->user()->address }}</textarea>
                                 </div>
                                 
                                 <div class="col-12 mb-4">
                                     <label class="form-label">Nationality <span class="text-danger">*</span></label>
-                                    <select class="form-select">
-                                        <option selected>Indian</option>
+                                    <select class="form-select" name="nationality">
+                                        <option selected>{{ auth()->user()->nationality ?? 'Indian' }}</option>
                                     </select>
                                 </div>
                                 
@@ -149,6 +151,7 @@
                                     <button class="btn btn-primary">Update Details</button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                     
@@ -157,11 +160,13 @@
                         <div class="bg-white rounded p-4 shadow-sm">
                             <h4 class="text-primary mb-4">Demat Details</h4>
                             
+                            <form method="POST" action="{{ route('profile.update.demat') }}">
+                                @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">DP Id <span class="text-danger">*</span> <i class="fas fa-info-circle text-muted"></i></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="12033200">
+                                        <input type="text" name="dp_id" class="form-control" value="{{ optional(auth()->user()->dematDetails)->dp_id }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -171,7 +176,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Client Id <span class="text-danger">*</span> <i class="fas fa-info-circle text-muted"></i></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="43334425">
+                                        <input type="text" name="client_id" class="form-control" value="{{ optional(auth()->user()->dematDetails)->client_id }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -189,6 +194,7 @@
                                     <button class="btn btn-primary">Update Details</button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                     
@@ -197,11 +203,13 @@
                         <div class="bg-white rounded p-4 shadow-sm">
                             <h4 class="text-primary mb-4">Bank Details</h4>
                             
+                            <form method="POST" action="{{ route('profile.update.bank') }}">
+                                @csrf
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Bank Name <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="INDIAN BANK">
+                                        <input type="text" name="bank_name" class="form-control" value="{{ optional(auth()->user()->bankDetails)->bank_name }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -211,7 +219,7 @@
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Account Number <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="6753552973">
+                                        <input type="text" name="account_no" class="form-control" value="{{ optional(auth()->user()->bankDetails)->account_no }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -221,7 +229,7 @@
                                 <div class="col-12 mb-4">
                                     <label class="form-label">IFSC Code <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="IDIB000T109">
+                                        <input type="text" name="ifsc_code" class="form-control" value="{{ optional(auth()->user()->bankDetails)->ifsc_code }}">
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -232,6 +240,7 @@
                                     <button class="btn btn-primary">Update Details</button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                     
@@ -286,7 +295,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">DP Id <i class="fas fa-info-circle text-muted"></i></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="12033200" readonly>
+                                        <input type="text" class="form-control" value="{{ optional(auth()->user()->dematDetails)->dp_id }}" readonly>
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -295,7 +304,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label">Client Id <i class="fas fa-info-circle text-muted"></i></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" value="43334425" readonly>
+                                        <input type="text" class="form-control" value="{{ optional(auth()->user()->dematDetails)->client_id }}" readonly>
                                         <span class="input-group-text bg-success text-white">
                                             <i class="fas fa-check"></i>
                                         </span>
@@ -315,7 +324,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Bank Name <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" value="INDIAN BANK" readonly>
+                                            <input type="text" class="form-control" value="{{ optional(auth()->user()->bankDetails)->bank_name }}" readonly>
                                             <span class="input-group-text bg-success text-white">
                                                 <i class="fas fa-check"></i>
                                             </span>
@@ -324,7 +333,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Account Number <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" value="6753552973" readonly>
+                                            <input type="text" class="form-control" value="{{ optional(auth()->user()->bankDetails)->account_number }}" readonly>
                                             <span class="input-group-text bg-success text-white">
                                                 <i class="fas fa-check"></i>
                                             </span>
@@ -333,7 +342,7 @@
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">IFSC Code <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" value="IDIB000T109" readonly>
+                                            <input type="text" class="form-control" value="{{ optional(auth()->user()->bankDetails)->ifsc_code }}" readonly>
                                             <span class="input-group-text bg-success text-white">
                                                 <i class="fas fa-check"></i>
                                             </span>
@@ -364,25 +373,25 @@
                                             <tr>
                                                 <td class="fw-bold">Name</td>
                                                 <td class="text-end">
-                                                    <span class="badge bg-success">Verified</span>
+                                                    <span class="badge {{ auth()->user()->full_name ? 'bg-success' : 'bg-secondary' }}">{{ auth()->user()->full_name ? 'Verified' : 'Pending' }}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="fw-bold">PAN</td>
                                                 <td class="text-end">
-                                                    <span class="badge bg-success">Verified</span>
+                                                    <span class="badge {{ auth()->user()->pan_no ? 'bg-success' : 'bg-secondary' }}">{{ auth()->user()->pan_no ? 'Verified' : 'Pending' }}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="fw-bold">Bank</td>
                                                 <td class="text-end">
-                                                    <span class="badge bg-success">Verified</span>
+                                                    <span class="badge {{ optional(auth()->user()->bankDetails)->account_number ? 'bg-success' : 'bg-secondary' }}">{{ optional(auth()->user()->bankDetails)->account_number ? 'Verified' : 'Pending' }}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="fw-bold">Demat</td>
                                                 <td class="text-end">
-                                                    <span class="badge bg-success">Verified</span>
+                                                    <span class="badge {{ optional(auth()->user()->dematDetails)->dp_id && optional(auth()->user()->dematDetails)->client_id ? 'bg-success' : 'bg-secondary' }}">{{ optional(auth()->user()->dematDetails)->dp_id && optional(auth()->user()->dematDetails)->client_id ? 'Verified' : 'Pending' }}</span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -409,5 +418,4 @@
             </div>
         </div>
     </div>
-
 @endsection

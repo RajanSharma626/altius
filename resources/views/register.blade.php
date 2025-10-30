@@ -45,31 +45,80 @@
                             <div class="mt-md-4 mb-3">
 
                                 <h2 class="fw-bold mb-2 text-uppercase">Create Account</h2>
-                                <p class="mb-3">Please enter your login and password!</p>
+                                <p class="mb-3">Please enter your details to register!</p>
 
-                                <div class="form-outline form-white mb-3">
-                                    <label class="form-label" for="typeEmailX">Full Name<sup class="text-danger">*</sup></label>
-                                    <input type="text" class="form-control py-2" placeholder="Enter Name" />
-                                </div>
-                                <div class="form-outline form-white mb-3">
-                                    <label class="form-label" for="typeEmailX">Email<sup class="text-danger">*</sup></label>
-                                    <input type="email" id="typeEmailX" class="form-control py-2"
-                                        placeholder="Enter Email" />
-                                </div>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul class="mb-0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
 
-                                <div class="form-outline form-white mb-3">
-                                    <label class="form-label" for="typePasswordX">Phone No.<sup class="text-danger">*</sup></label>
-                                    <input type="number" id="typePasswordX" class="form-control py-2"
-                                        placeholder="Enter Phone No." />
-                                </div>
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
 
-                                <div class="form-outline form-white mb-3">
-                                    <label class="form-label" for="typePasswordX">Referral Code (Optional)</label>
-                                    <input type="number" id="typePasswordX" class="form-control py-2"
-                                        placeholder="Have a referral code?" />
-                                </div>
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
+                                    
+                                    <div class="form-outline form-white mb-3">
+                                        <label class="form-label" for="full_name">Full Name<sup class="text-danger">*</sup></label>
+                                        <input type="text" id="full_name" name="full_name" class="form-control py-2 @error('full_name') is-invalid @enderror" 
+                                            placeholder="Enter Full Name" value="{{ old('full_name') }}" required />
+                                        @error('full_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="form-outline form-white mb-3">
+                                        <label class="form-label" for="email">Email<sup class="text-danger">*</sup></label>
+                                        <input type="email" id="email" name="email" class="form-control py-2 @error('email') is-invalid @enderror"
+                                            placeholder="Enter Email" value="{{ old('email') }}" required />
+                                        @error('email')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
 
-                                <button class="btn btn-primary btn-lg w-100 px-5" type="submit">Create</button>
+                                    <div class="form-outline form-white mb-3">
+                                        <label class="form-label" for="phone_no">Phone No.<sup class="text-danger">*</sup></label>
+                                        <input type="tel" id="phone_no" name="phone_no" class="form-control py-2 @error('phone_no') is-invalid @enderror"
+                                            placeholder="Enter Phone No." value="{{ old('phone_no') }}" required />
+                                        @error('phone_no')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-outline form-white mb-3">
+                                        <label class="form-label" for="referral_code">Referral Code (Optional)</label>
+                                        <input type="text" id="referral_code" name="referral_code" class="form-control py-2 @error('referral_code') is-invalid @enderror"
+                                            placeholder="Have a referral code?" value="{{ old('referral_code') }}" />
+                                        @error('referral_code')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-outline form-white mb-3">
+                                        <label class="form-label" for="password">Password<sup class="text-danger">*</sup></label>
+                                        <input type="password" id="password" name="password" class="form-control py-2 @error('password') is-invalid @enderror"
+                                            placeholder="Enter Password" required />
+                                        @error('password')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-outline form-white mb-3">
+                                        <label class="form-label" for="password_confirmation">Confirm Password<sup class="text-danger">*</sup></label>
+                                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control py-2"
+                                            placeholder="Confirm Password" required />
+                                    </div>
+
+                                    <button class="btn btn-primary btn-lg w-100 px-5" type="submit">Create Account</button>
+                                </form>
 
                                 <div class="d-flex align-items-center my-3">
                                     <hr class="flex-grow-1">

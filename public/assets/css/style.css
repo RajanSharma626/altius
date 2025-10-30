@@ -1,7 +1,4 @@
-   .sidebar {
-       height: 100vh;
-       overflow-y: auto;
-   }
+ 
 
    .sidebar-body {
        height: calc(100vh - 120px);
@@ -123,3 +120,247 @@
        background: #007bff;
        color: white;
    }
+
+   /* --- Dashboard UI Custom Styles --- */
+   body {
+       background: #fff;
+   }
+
+   .navbar-light {
+       background: #fff !important;
+       box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .04);
+   }
+
+   .navbar-brand img {
+       height: 50px;
+       margin-right: 6px;
+       margin-top: -5px;
+   }
+
+   .nav-link,
+   .navbar-text {
+       font-size: 1.08rem;
+   }
+
+   .bg-app-bar {
+       background: #f2fceb;
+       font-size: 1.1rem;
+       color: #226154;
+   }
+
+
+   .sidebar .nav-tabs .nav-link {
+       border: none;
+       color: var(--bs-primary);
+       border-radius: 0;
+       font-weight: 500;
+   }
+
+   .sidebar .nav-tabs .nav-link.active {
+       background: var(--bs-primary);
+       color: #fff;
+   }
+
+   .company-list {
+       height: 73vh;
+       overflow-y: scroll;
+       border-right: 1px solid #e3e9ef;
+   }
+
+   .company-link {
+       display: block;
+       color: var(--bs-primary);
+       padding: .45rem .6rem;
+       font-size: 1.03rem;
+       white-space: nowrap;
+       text-decoration: none;
+       overflow: hidden;
+       text-overflow: ellipsis;
+   }
+
+   .company-link:hover,
+   .company-link.active {
+       background: #e7f4fb;
+       border-radius: 5px;
+   }
+
+   .search-input {
+       font-size: .98rem;
+       border-radius: 6px;
+       border: 1px solid #c5dbec;
+       margin-bottom: .3rem;
+   }
+
+   .card-dashboard {
+       border-radius: 16px;
+       box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.05);
+   }
+
+   .spotlight-card {
+       border-radius: 15px;
+       box-shadow: 0 0 16px rgba(221, 221, 221, .16);
+       border: 1.5px solid #e4e9f2;
+       background: #fff;
+       padding: 0 0 0.5rem 0;
+   }
+
+   .spotlight-title {
+       color: #d92031;
+       font-weight: 700;
+       font-size: 1.13rem;
+   }
+
+   .most-watched-card {
+       background: linear-gradient(116deg, #289da2 0%, #1a90c7 100%);
+       color: #fff;
+       border-radius: 15px;
+       height: 190px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       box-shadow: 0 3px 16px rgba(26, 144, 199, .1);
+   }
+
+   .section-title {
+       font-weight: bold;
+       font-size: 1.13rem;
+   }
+
+   .card-section {
+       background: #fff;
+       border-radius: 14px;
+       box-shadow: 0 2px 11px 0 rgba(0, 0, 0, .07);
+       margin-bottom: 0.85rem;
+   }
+
+   .mini-icon {
+       height: 27px;
+       margin-right: 8px;
+       vertical-align: middle;
+   }
+
+   .btn-watchlist,
+   .btn-explore {
+       font-size: .97rem;
+       margin-bottom: 0.15rem;
+       border-radius: 6px;
+   }
+
+   .btn-watchlist {
+       background: var(--bs-primary);
+       color: #fff;
+       border: none;
+   }
+
+   .btn-explore {
+       background: #fff;
+       color: var(--bs-primary);
+       border: 1.2px solid var(--bs-primary);
+   }
+
+   /* Enhancements for branding, depth, interaction */
+   .sidebar {
+       min-height: 100vh;
+       border-right: 2.5px solid #bde1f8;
+       box-shadow: 2px 0 7px 0 rgba(15, 100, 180, 0.03);
+   }
+
+   .search-input {
+       border-color: #7fc8f8;
+   }
+
+   .company-list .company-link:hover {
+       background: #dff4fb;
+       border-radius: 6px;
+       transition: background .16s;
+   }
+
+   .card-dashboard,
+   .card-section,
+   .spotlight-card {
+       transition: box-shadow 0.18s, transform 0.14s;
+   }
+
+   .card-dashboard:hover,
+   .card-section:hover,
+   .spotlight-card:hover {
+       box-shadow: 0 8px 32px rgba(26, 144, 199, 0.12), 0 1.5px 9px rgba(34, 97, 143, 0.08);
+       transform: translateY(-2px) scale(1.02);
+       z-index: 2;
+   }
+
+   .spotlight-card {
+       border-width: 2px;
+       border-color: #ffeceb;
+   }
+
+   .welcome-banner {
+       background: linear-gradient(92deg, #e6f8ff 25%, #e8f6df 100%);
+       border-radius: 14px;
+       padding: 1.25rem 2.2rem;
+       margin-bottom: 1.4rem;
+       box-shadow: 0 1.5px 12px 0 rgba(20, 60, 126, 0.04);
+       display: flex;
+       align-items: center;
+   }
+
+   .welcome-banner h1 {
+       margin-bottom: 0;
+   }
+
+   .welcome-banner .username {
+       font-size: 1.10rem;
+       margin-left: 1.3rem;
+       letter-spacing: 0.5px;
+       font-weight: 600;
+       color: #2689c1;
+       text-transform: uppercase;
+   }
+
+   .btn-watchlist,
+   .btn-explore {
+       border-radius: 1.1rem;
+       font-size: 1.07rem;
+       padding: 6px 22px;
+       font-weight: 500;
+       box-shadow: 0 2px 8px rgba(23, 158, 219, 0.07);
+       transition: background .15s, color .15s, box-shadow .15s;
+   }
+
+
+   .btn-explore:hover {
+       background: rgba(13,110,253,0.06);
+       color: var(--bs-primary);
+       border-color: var(--bs-primary);
+   }
+
+   .most-watched-card {
+       box-shadow: 0 6px 24px rgba(40, 157, 162, .13), 0 1.5px 12px rgba(34, 144, 199, .07);
+   }
+
+   .section-title {
+       color: #2689c1;
+       font-weight: 700;
+       text-shadow: 0 1px 0 rgba(180, 200, 245, 0.11);
+   }
+
+/* Company list custom scrollbar */
+.company-list {
+    scrollbar-width: thin;                 /* Firefox */
+    scrollbar-color: #9fd1f1 #f0f7fb;      /* Firefox: thumb track */
+}
+.company-list::-webkit-scrollbar {
+    width: 8px;                            /* Chrome/Safari/Edge */
+}
+.company-list::-webkit-scrollbar-track {
+    background: #f0f7fb;
+    border-radius: 10px;
+}
+.company-list::-webkit-scrollbar-thumb {
+    background: #9fd1f1;
+    border-radius: 10px;
+    border: 2px solid #f0f7fb;             /* creates padding around thumb */
+}
+.company-list::-webkit-scrollbar-thumb:hover {
+    background: #78c0eb;
+}

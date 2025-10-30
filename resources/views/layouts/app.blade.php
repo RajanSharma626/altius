@@ -12,122 +12,21 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #e5e7eb;">
-        <div class="container-fluid">
-            <!-- Logo -->
-            <a class="navbar-brand" href="#">
-                <img src="https://bridginggap.org/wp-content/uploads/2025/03/BgisLogoFinalx300.png"
-                    class="d-inline-block align-text-top" style="height: 32px;" alt="Logo">
-            </a>
-
-            <!-- Menu -->
-            <div class="navbar-nav ms-auto">
-                <ul class="navbar-nav d-flex flex-row align-items-center">
-                    <li class="nav-item me-3">
-                        <a href="/" class="nav-link text-dark">Dashboard</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a href="#" class="nav-link text-dark">Holdings</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a href="{{ route('order-book') }}" class="nav-link text-dark">Order Book</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a href="{{ route('refer-and-earn') }}" class="nav-link text-dark">Refer and Earn</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a href="#" class="nav-link text-dark"><i class="bi bi-bell-fill"></i></a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a href="#" class="nav-link text-dark" data-bs-toggle="modal"
-                            data-bs-target="#videoModal"><i class="bi bi-mortarboard-fill fs-5"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <a href="#" class="nav-link text-dark dropdown-toggle" id="userDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle fs-4"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="{{ route('my-account') }}"><i
-                                            class="bi bi-person"></i> My Account</a></li>
-                                <li><a class="dropdown-item" href="#"><i
-                                            class="bi bi-file-earmark-spreadsheet"></i> Tax Sheet</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-bell"></i> Price Alert</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#"><i
-                                            class="bi bi-file-earmark-spreadsheet"></i> Terms and conditions</a></li>
-                                <li><a class="dropdown-item" href="#"><i
-                                            class="bi bi-file-earmark-spreadsheet"></i> Privacy Policy</a></li>
-                                <li><a class="dropdown-item" href="#"><i
-                                            class="bi bi-file-earmark-spreadsheet"></i> Disclosures</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" href="#"><i
-                                            class="bi bi-box-arrow-left"></i> Logout</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 px-0">
-                <div class="alert alert-success text-center py-2 mb-0 rounded-0" role="alert">
-                    For any inquiries, please contact your Relationship Manager
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('components.navbar')
 
     <div class="container-fluid">
         <div class="row">
             @php
-                $isMyAccount = request()->routeIs('my-account');
+                $isAuthRoute = request()->routeIs('login', 'register', 'forgot-password');
             @endphp
 
-            @if ($isMyAccount)
+            @if ($isAuthRoute)
+                <!-- Authentication pages - no sidebar -->
                 <main class="col-12 p-4">
                     @yield('content')
                 </main>
             @else
-                <aside class="col-md-3 sidebar bg-light border-end">
-                    <div class="p-3 border-bottom">
-                        <!-- Search Box -->
-                        <input type="text" placeholder="Search..." class="form-control">
-                    </div>
-                    <div class="d-flex border-bottom">
-                        <!-- Tabs -->
-                        <button class="btn btn-outline-secondary flex-fill rounded-0 border-0 fw-bold">
-                            All Companies
-                        </button>
-                        <button class="btn btn-outline-secondary flex-fill rounded-0 border-0 fw-bold">
-                            Watchlist
-                        </button>
-                    </div>
-                    <div class="sidebar-body">
-                        <!-- Sidebar Body -->
-                        <ul class="list-unstyled">
-                            <li class="p-2 bg-white company-item border-bottom">Company 1</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 2</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 3</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 4</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 5</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 6</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 7</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 8</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 9</li>
-                            <li class="p-2 bg-white company-item border-bottom">Company 10</li>
-                        </ul>
-                    </div>
-                </aside>
+                @include('components.sidebar')
 
                 <main class="col-md-9 p-4">
                     @yield('content')

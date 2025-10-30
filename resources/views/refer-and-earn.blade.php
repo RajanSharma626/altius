@@ -12,8 +12,8 @@
                         <h2 class="text-primary fw-bold mb-2">Invite and Earn</h2>
                         <p class="text-muted mb-0">Get ₹500 for every successful referral</p>
                     </div>
-                    <div class="col-md-4 text-end">
-                        <img src="/placeholder.svg?height=120&width=200" alt="Referral Illustration" class="img-fluid">
+                <div class="col-md-4 text-end">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5934/5934817.png" alt="Referral Illustration" class="img-fluid" style="max-height:120px;">
                         <div class="mt-2">
                             <small><a href="#" class="text-danger text-decoration-none">Terms &
                                     Conditions*</a></small>
@@ -27,22 +27,22 @@
             <!-- Social Sharing Buttons -->
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
-                    <button class="btn btn-success w-100 py-3 d-flex align-items-center justify-content-center">
+                    <a class="btn btn-success w-100 py-3 d-flex align-items-center justify-content-center" href="https://api.whatsapp.com/send?text={{ urlencode($referralLink) }}" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp fa-2x me-3"></i>
                         <span class="fw-semibold">Share on WhatsApp</span>
-                    </button>
+                    </a>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <button class="btn btn-primary w-100 py-3 d-flex align-items-center justify-content-center">
+                    <button class="btn btn-primary w-100 py-3 d-flex align-items-center justify-content-center" onclick="navigator.clipboard.writeText('{{ $referralLink }}'); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy Link',1500);">
                         <i class="fas fa-copy fa-2x me-3"></i>
                         <span class="fw-semibold">Copy Link</span>
                     </button>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <button class="btn btn-info w-100 py-3 d-flex align-items-center justify-content-center">
+                    <a class="btn btn-info w-100 py-3 d-flex align-items-center justify-content-center" href="https://twitter.com/intent/tweet?url={{ urlencode($referralLink) }}&text={{ urlencode('Join me on Bridging Gap!') }}" target="_blank" rel="noopener">
                         <i class="fab fa-twitter fa-2x me-3"></i>
                         <span class="fw-semibold">Share on Twitter</span>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body text-center">
                             <h6 class="card-title text-muted mb-2">Referral Code</h6>
-                            <h4 class="text-primary fw-bold">FNZF16JO</h4>
+                            <h4 class="text-primary fw-bold">{{ $referralCode }}</h4>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body text-center">
                             <h6 class="card-title text-muted mb-2">Referrals Done</h6>
-                            <h4 class="text-primary fw-bold">0/20</h4>
+                            <h4 class="text-primary fw-bold">{{ $referralsDone }}/20</h4>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body text-center">
                             <h6 class="card-title text-muted mb-2">Total Rewards Earned</h6>
-                            <h4 class="text-success fw-bold">₹0.00</h4>
+                            <h4 class="text-success fw-bold">₹{{ number_format($rewardsEarned, 2) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body text-center">
                             <h6 class="card-title text-muted mb-2">Current Balance</h6>
-                            <h4 class="text-success fw-bold">₹0.00</h4>
+                            <h4 class="text-success fw-bold">₹{{ number_format($currentBalance, 2) }}</h4>
                         </div>
                     </div>
                 </div>
