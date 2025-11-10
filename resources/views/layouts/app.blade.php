@@ -17,12 +17,14 @@
     <div class="container-fluid">
         <div class="row">
             @php
-                $isAuthRoute = request()->routeIs('login', 'register', 'forgot-password');
+                $noSidebarRoutes = ['login', 'register', 'forgot-password', 'my-account', 'holdings'];
+                $isNoSidebar = request()->routeIs($noSidebarRoutes);
+                $mainPaddingClass = $isNoSidebar ? 'p-0 p-md-4' : 'p-4';
             @endphp
 
-            @if ($isAuthRoute)
-                <!-- Authentication pages - no sidebar -->
-                <main class="col-12 p-4">
+            @if ($isNoSidebar)
+                <!-- Routes without application sidebar -->
+                <main class="col-12 {{ $mainPaddingClass }}">
                     @yield('content')
                 </main>
             @else
@@ -176,6 +178,7 @@
             chart.render();
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>

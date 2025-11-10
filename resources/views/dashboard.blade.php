@@ -3,68 +3,249 @@
 @section('title', 'Dashboard')
 
 @section('content')
-            <div class="px-4 pt-4">
-                <!-- Welcome + Cards Row -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="welcome-banner">
-                            <h5 class="fw-bold d-inline mb-0">Welcome Back, <span class="text-primary">{{ auth()->user()->name ?? auth()->user()->email }}</span></h5>
+
+    <div class="welcome-note">
+        <h4 class="font-bold">Welcome Rajan Sharma</h4>
+    </div>
+
+    <section class="mt-5">
+        <div class="row">
+            <div class="col-6">
+                <div class="card p-3">
+                    <div class="">
+                        <h6 class="text-danger">Spotlight</h6>
+                        <h4 class="fs-5 mb-2">National Stock Exchange Ltd (NSE)</h4>
+                        <p class="text-muted text-base">
+                            Stock Exchange
+                        </p>
+
+                        <div class="px-5 my-4">
+                            <img src="{{ asset('assets/images/company-logo/nse.jpg') }}" class="img-fluid" alt="">
+                        </div>
+
+                        <p class="text-success text-base">
+                            Available at offer price!
+                        </p>
+                    </div>
+                    <div class=" d-flex align-items-center justify-content-between">
+                        <!-- Using utilities: -->
+                        <a href="#" class="btn btn-primary btn-sm py-1 px-4 rounded img-fluid">
+                            + Watchlist
+                        </a>
+                        <a href="{{ route('price') }}" class="btn btn-primary btn-sm py-1 px-4 rounded img-fluid">
+                            Explore Asset
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card h-100 p-3">
+                    <div class="">
+                        <h6 class="text-danger">Spotlight</h6>
+                        <h4 class="fs-5 mb-2">National Stock Exchange Ltd (NSE)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="mt-5 w-full">
+        <div class=" mx-auto bg-white rounded-xl p-6 w-full">
+            <div class="row justify-content-between w-100">
+                <div class="col-md-4 p-2">
+                    <div class="p-3 rounded border h-100">
+                        <h5 class="font-bold mb-3">Startup Unicorns</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Razorpay Razorpay</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Zomato</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://play-lh.googleusercontent.com/IWU8HM1uQuW8wVrp6XpyOOJXvb_1tDPUDAOfkrl83RZPG9Ww3dCY9X1AV6T1atSvgXc"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Paytm</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2">
+                    <div class="p-3 rounded border h-100">
+                        <h5 class="font-bold text-xl mb-3">Popular Companies</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://www.armssecurities.com/wp-content/uploads/2020/07/HDFC-SECURITIES.jpg"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">HDFC Securities Ltd</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://download.logo.wine/logo/Hexaware_Technologies/Hexaware_Technologies-Logo.wine.png"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Hexaware Technologies Ltd</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1vlp4HChxPG30ttSTzLoqghFQPr9sNUs7w&s"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Chennai Super Kings Cricket Ltd. (CSK)</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2">
+                    <div class="p-3 rounded border h-100">
+                        <h5 class="font-bold text-xl mb-3">Companies</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Razorpay Razorpay</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Zomato</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <span class="d-flex align-items-center">
+                                    <img src="https://play-lh.googleusercontent.com/IWU8HM1uQuW8wVrp6XpyOOJXvb_1tDPUDAOfkrl83RZPG9Ww3dCY9X1AV6T1atSvgXc"
+                                        class="rounded img-fluid" width="30px" alt=""> &nbsp;
+                                    <span class="ml-2">Paytm</span>
+                                </span>
+                                <i class="bi bi-arrow-right-circle-fill text-black"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid p-4">
+            <div class="row g-3">
+                <!-- Refer and Earn Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                            <h6 class="card-title mb-0 fw-bold">Refer and Earn</h6>
+                            <button class="btn btn-primary btn-sm">Refer a Friend</button>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted small mb-3">Refer a friend and you both get ₹500</p>
+
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <div class="border-end">
+                                        <h3 class="text-success fw-bold mb-1">0<span class="text-muted">/20</span></h3>
+                                        <small class="text-muted">Referrals Done</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h3 class="text-success fw-bold mb-1">₹0.00</h3>
+                                    <small class="text-muted">Rewards Earned</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row g-4 mb-3">
-                    <div class="col-md-6 col-lg-5">
-                        <div class="spotlight-card px-4 py-3 mb-0">
-                            <div class="spotlight-title mb-2">Spotlight</div>
-                            <div class="fw-bold fs-5 mb-1">National Stock Exchange Ltd (NSE)</div>
-                            <div class="text-muted mb-2">Stock Exchange</div>
-                            <div class="mb-3 text-center">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRglzIuVU3DozlJkM8ZZlgepRriNhalGAqObg&s" alt="NSE" style="height:85px;">
-                            </div>
-                            <div class="text-success mb-2" style="font-size:1rem;">Available at offer price!</div>
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-sm btn-primary btn-watchlist">+ Watchlist</button>
-                                <button class="btn btn-sm btn-outline-primary btn-explore">Explore Asset</button>
-                            </div>
+                <!-- Relationship Manager Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-white border-0">
+                            <h6 class="card-title mb-0 fw-bold">Relationship Manager</h6>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 offset-lg-1">
-                        <div class="most-watched-card px-3">
-                            <div class="d-flex flex-column justify-content-center align-items-center w-100">
-                                <span class="fw-semibold fs-5">Most Watched Companies</span>
-                                <img src="https://cdn-icons-png.flaticon.com/512/2739/2739688.png" style="height:60px; margin-top:24px;">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-user text-muted me-2"></i>
+                                    <strong class="me-2">Name :</strong>
+                                    <span>Ranjit Thakur</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-envelope text-muted me-2"></i>
+                                    <strong class="me-2">Email :</strong>
+                                    <a href="mailto:ranjit@altosinvestech.com" class="text-primary text-decoration-none">
+                                        ranjit@altosinvestech.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-phone text-muted me-2"></i>
+                                    <strong class="me-2">Mobile No. :</strong>
+                                    <a href="tel:+918727201510" class="text-primary text-decoration-none">
+                                        +918727201510
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Startup Unicorns, Popular Companies, Companies with ... -->
-                <div class="row g-4 mb-3">
-                    <div class="col-md-4">
-                        <div class="card-section p-3 h-100">
-                            <div class="section-title mb-2">Startup Unicorns</div>
-                            <div><a href="#" class="company-link"><img src="https://seeklogo.com/images/M/mobikwik-logo-0B34C096F2-seeklogo.com.png" class="mini-icon">Mobikwik (One Mobikwik Systems Ltd)</a></div>
-                            <div><a href="#" class="company-link"><img src="https://cdn.pharmeasy.in/payments/pe-logo-big.png" class="mini-icon">PharmEasy (API Holdings Ltd)</a></div>
-                            <div><a href="#" class="company-link"><img src="https://www.bira91.com/static/brandv2/img/logos/bira-logo.svg" class="mini-icon">Bira91 (B9 Beverages Ltd.) (ESTD-2012)</a></div>
+                <!-- Research Area Card -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="card h-100">
+                        <div class="card-header bg-white border-0">
+                            <h6 class="card-title mb-0 fw-bold">Research Area</h6>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-section p-3 h-100">
-                            <div class="section-title mb-2">Popular Companies</div>
-                            <div><a href="#" class="company-link">HDFC Securities Ltd</a></div>
-                            <div><a href="#" class="company-link">Hexaware Technologies Ltd</a></div>
-                            <div><a href="#" class="company-link">Chennai Super Kings Cricket Ltd. (CSK)</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-section p-3 h-100">
-                            <div class="section-title mb-2">Companies with ...</div>
-                            <div><a href="#" class="company-link">Otis Elevator Company</a></div>
-                            <div><a href="#" class="company-link">GKN Driveline (India) Ltd</a></div>
-                            <div><a href="#" class="company-link">A V Thomas and Company Ltd (AVT)</a></div>
+                        <div class="card-body">
+                            <ol class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="#" class="text-primary text-decoration-none small">
+                                        1. Join Our WhatsApp Community For the Latest Updates
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-primary text-decoration-none small">
+                                        2. All you need to know about Waaree Energies Limited
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-primary text-decoration-none small">
+                                        3. Long IPO wait times fuel Gyo would look for private funding
+                                    </a>
+                                </li>
+                            </ol>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+    </section>
 @endsection

@@ -47,10 +47,10 @@
                     <a href="{{ route('insights') }}"
                         class="py-2 px-1 text-secondary text-decoration-none">Insights</a>
                     <a href="{{ route('balance-sheet') }}"
-                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none">Balance Sheet</a>
+                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none active">Balance Sheet</a>
                     <a href="{{ route('profit-and-loss') }}"
                         class="py-2 px-1 text-secondary text-decoration-none">Profit and Loss</a>
-                    <a href=""
+                    <a href="{{ route('shareholdings') }}"
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Shareholdings</a>
                     <a href="" class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Ancillary</a>
                     <a href="{{ route('press') }}"
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="mt-4">
-                    <table class="table table-bordered table-sm">
+                    <table class="table table-bordered small">
                         <thead>
                             <tr>
                                 <th class="text-start p-2"> </th>

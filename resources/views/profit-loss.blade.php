@@ -50,9 +50,9 @@
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Balance
                         Sheet</a>
                     <a href="{{ route('profit-and-loss') }}"
-                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none">Profit
+                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none active">Profit
                         and Loss</a>
-                    <a href=""
+                    <a href="{{ route('shareholdings') }}"
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Shareholdings</a>
                     <a href="" class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Ancillary</a>
                     <a href="{{ route('press') }}"
@@ -74,7 +74,7 @@
                 </div>
                 <div class="mt-4">
                     <div class="table-responsive">
-                        <table class="table table-sm">
+                        <table class="table small">
                             <thead>
                                 <tr class="border-bottom">
                                     <th class="text-start p-2 border"> </th>

@@ -45,14 +45,14 @@
                     <a href="{{ route('overview') }}"
                         class="py-2 px-1  text-secondary text-decoration-none hover-text-dark hover-border-secondary">Overview</a>
                     <a href="{{ route('insights') }}"
-                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none">Insights</a>
+                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none active">Insights</a>
                     <a href="{{ route('balance-sheet') }}"
                         class="py-2 px-1  text-secondary text-decoration-none hover-text-dark hover-border-secondary">Balance
                         Sheet</a>
                     <a href="{{ route('profit-and-loss') }}"
                         class="py-2 px-1  text-secondary text-decoration-none hover-text-dark hover-border-secondary">Profit
                         and Loss</a>
-                    <a href=""
+                    <a href="{{ route('shareholdings') }}"
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Shareholdings</a>
                     <a href="" class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Ancillary</a>
                     <a href="{{ route('press') }}"
@@ -69,7 +69,7 @@
 
                     <h4 class="fw-bold mb-4">Calculation of Intrinsic worth from Listed Investments:</h4>
 
-                    <table class="table table-bordered table-sm text-secondary mb-4">
+                    <table class="table table-bordered small text-secondary mb-4">
                         <thead class="table-light">
                             <tr>
                                 <th>Company Name</th>

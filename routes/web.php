@@ -2,12 +2,50 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\UserApprovalController;
+use App\Http\Controllers\Admin\CompanyController as AdminCompanyController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ProfileCompletionController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\ReferAndEarnController;
+use App\Http\Controllers\ShareholdingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+// Admin authentication routes
+Route::prefix('admin-panel')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        if (Auth::check() && Auth::user()->is_admin) {
+            return redirect()->route('admin.dashboard');
+        }
+        return redirect()->route('admin.login');
+    })->name('redirect');
+
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
+        Route::post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
+    });
+
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+        Route::get('/users', [UserApprovalController::class, 'allUsers'])->name('users.index');
+        Route::get('/users/pending', [UserApprovalController::class, 'index'])->name('users.pending');
+        Route::get('/users/{user}/review', [UserApprovalController::class, 'show'])->name('users.review');
+        Route::post('/users/{user}/approve', [UserApprovalController::class, 'approve'])->name('users.approve');
+        Route::post('/users/{user}/reject', [UserApprovalController::class, 'reject'])->name('users.reject');
+
+        Route::get('/companies/export', [AdminCompanyController::class, 'export'])->name('companies.export');
+        Route::get('/companies/template', [AdminCompanyController::class, 'downloadTemplate'])->name('companies.template');
+        Route::post('/companies/import', [AdminCompanyController::class, 'import'])->name('companies.import');
+        Route::resource('companies', AdminCompanyController::class);
+
+        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+    });
+});
 
 // ONLY Authentication routes (no authentication required)
 Route::middleware('guest')->group(function () {
@@ -15,6 +53,10 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
     Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
+
+    // Google OAuth
+    Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('google.redirect');
+    Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
     
     // Registration routes
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -47,9 +89,19 @@ Route::middleware('auth')->group(function () {
         Route::post('/profile/complete', [ProfileCompletionController::class, 'complete'])->name('profile.complete.post');
 
         // Trading and portfolio routes
+        Route::get('/holdings', function () {
+            return view('holdings');
+        })->name('holdings');
+
         Route::get('/order-book', function () {
             return view('order-book');
         })->name('order-book');
+
+        Route::get('/shareholdings', [ShareholdingController::class, 'index'])->name('shareholdings');
+
+        Route::get('/notifications', function () {
+            return view('notifications');
+        })->name('notifications');
 
         Route::get('/price', function () {
             return view('price');
@@ -92,14 +144,6 @@ Route::middleware('auth')->group(function () {
         })->name('company.info');
     });
 
-    // Admin routes - require admin privileges
-    Route::prefix('admin')->middleware('admin')->group(function () {
-        Route::get('/users/pending', [UserApprovalController::class, 'index'])->name('admin.users.pending');
-        Route::get('/users/{user}/review', [UserApprovalController::class, 'show'])->name('admin.users.review');
-        Route::post('/users/{user}/approve', [UserApprovalController::class, 'approve'])->name('admin.users.approve');
-        Route::post('/users/{user}/reject', [UserApprovalController::class, 'reject'])->name('admin.users.reject');
-        Route::get('/users', [UserApprovalController::class, 'allUsers'])->name('admin.users.index');
-    });
 });
 
 // Fallback route for any unauthorized access attempts

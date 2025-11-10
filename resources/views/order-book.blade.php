@@ -9,7 +9,7 @@
         <div class="row align-items-center g-2 mb-4">
             <!-- Filter Dropdown -->
             <div class="col-auto">
-                <select class="form-select">
+                <select class="form-select form-select-sm">
                     <option>All</option>
                     <option>Unlisted Companies</option>
                     <option>MLDs</option>
@@ -24,21 +24,26 @@
             <!-- Navigation Tabs -->
             <div class="col-auto">
                 <div class="btn-group" role="group">
-                    <button class="btn btn-outline-secondary">Open Orders</button>
-                    <button class="btn btn-primary">Executed Orders</button>
-                    <button class="btn btn-success">Buy</button>
-                    <button class="btn btn-outline-danger">Sell</button>
+                    <button class="btn btn-outline-secondary btn-sm">Open Orders</button>
+                    <button class="btn btn-primary btn-sm">Executed Orders</button>
+                  
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-success btn-sm">Buy</button>
+                    <button class="btn btn-outline-danger btn-sm">Sell</button>
                 </div>
             </div>
 
             <!-- Search Bar -->
-            <div class="col">
-                <input type="text" placeholder="Search Asset/Status" class="form-control">
+            <div class="col-auto">
+                <input type="text" placeholder="Search Asset/Status" class="form-control form-control-sm">
             </div>
 
             <!-- Export Button -->
             <div class="col-auto">
-                <button class="btn btn-primary d-flex align-items-center">
+                <button class="btn btn-primary btn-sm d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" class="me-1">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -56,7 +61,7 @@
 
         <!-- Orders Table -->
         <div class="table-responsive">
-            <table class="table align-middle">
+            <table class="table align-middle small">
                 <thead class="table-light">
                     <tr>
                         <th>Order Id/Instrument</th>
@@ -79,8 +84,8 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <span>₹103.00</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" class="ms-1 text-warning">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" class="ms-1 text-warning">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>

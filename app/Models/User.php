@@ -33,6 +33,8 @@ class User extends Authenticatable
         'approved_at',
         'approved_by',
         'is_admin',
+        'google_id',
+        'google_avatar',
     ];
 
     /**

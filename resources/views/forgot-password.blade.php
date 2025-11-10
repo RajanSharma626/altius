@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridging Gap - Reset Password</title>
+    <title>Reset Password - Aura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Minimal custom CSS - only what Bootstrap can't handle */
-        body {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/forgot-password.css') }}">
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-white shadow-sm">
-        <div class="container">
-            <span class="navbar-brand mb-0 h1 fw-bold text-dark">
-                <img src="https://bridginggap.org/wp-content/uploads/2025/03/BgisLogoFinalx300.png" class="img-fluid"
-                    width="200px" alt="">
-            </span>
-            <button class="btn btn-primary btn-sm">
-                <i class="fab fa-google me-1"></i>Sign In
-            </button>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container-fluid vh-100">
-        <div class="row h-100 align-items-center">
-            <!-- Login Form Section -->
-            <div class="col-lg-6 d-flex justify-content-center">
-                <div class="card shadow-lg border-0 rounded-4" style="max-width: 450px; width: 100%;">
-                    <div class="card-body p-5">
-                        <h1 class="display-6 fw-bold text-dark mb-3">Reset Password</h1>
-                        <p class="text-muted mb-4 lh-base">
-                           Enter your email account associated with Altius Investech
-                        </p>
-
-                        <!-- Login Form -->
-                        <form>
-                            <div class="mb-3">
-                                <label for="email" class="form-label fw-semibold text-dark">Enter Email</label>
-                                <input type="email" class="form-control form-control-lg border-2" id="email"
-                                    placeholder="Email">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Submit</button>
-                        </form>
-
-                        <div class="text-center mt-4">
-                            <span class="text-muted">Remembered your password?</span>
-                            <a href="{{route('login')}}" class="text-primary text-decoration-none fw-semibold">Login</a>
-                        </div>
-                    </div>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="brand-badge">
+                    <span>A</span>
                 </div>
+                <h1>Forgot password?</h1>
+                <p>Enter your email and we will send you instructions to reset it.</p>
             </div>
 
-            <!-- Illustration Section -->
-            <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
-                <img src="{{ asset('assets/images/login/login.png') }}" class="img-fluid w-100" alt="">
+            <div class="auth-body">
+                @if (session('status'))
+                    <div class="alert alert-success border-0 rounded-3 py-2 px-3">
+                        <i class="bi bi-check-circle-fill me-2"></i>{{ session('status') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger border-0 rounded-3 py-2 px-3">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Please check the email entered.
+                    </div>
+                @endif
+
+                <form method="POST" action="{{ route('password.email') }}" class="mt-3">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control @error('email') is-invalid @enderror"
+                            placeholder="name@example.com"
+                            value="{{ old('email') }}"
+                            required
+                        >
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <button type="submit" class="primary-btn">Send reset link</button>
+                </form>
+
+                <div class="auth-footer">
+                    Remember your password?
+                    <a href="{{ route('login') }}">Back to sign in</a>
+                </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

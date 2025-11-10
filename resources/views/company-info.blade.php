@@ -54,7 +54,7 @@
                     <a href="{{ route('profit-and-loss') }}"
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Profit
                         and Loss</a>
-                    <a href=""
+                    <a href="{{ route('shareholdings') }}"
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Shareholdings</a>
                     <a href="" class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Ancillary</a>
                     <a href="{{ route('press') }}"
@@ -63,7 +63,7 @@
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Annual
                         Report</a>
                     <a href="{{ route('company.info') }}"
-                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none">Company
+                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none active">Company
                         Information</a>
                 </div>
             </div>

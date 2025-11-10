@@ -41,7 +41,7 @@
             <div class="border-bottom overflow-auto">
                 <div class="d-flex flex-nowrap gap-3 small">
                     <a href="{{route('price')}}"
-                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none">Price</a>
+                        class="py-2 px-1 border-bottom border-primary text-primary fw-medium text-decoration-none active">Price</a>
                     <a href="{{route('overview')}}"
                         class="py-2 px-1 text-secondary text-decoration-none">Overview</a>
                     <a href="{{route('insights')}}"
@@ -50,7 +50,7 @@
                         class="py-2 px-1 text-secondary text-decoration-none">Balance Sheet</a>
                     <a href="{{route('profit-and-loss')}}"
                         class="py-2 px-1 text-secondary text-decoration-none">Profit and Loss</a>
-                    <a href=""
+                    <a href="{{ route('shareholdings') }}"
                         class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Shareholdings</a>
                     <a href="" class="py-2 px-1 text-secondary text-decoration-none hover-text-dark">Ancillary</a>
                     <a href="{{ route('press') }}"
